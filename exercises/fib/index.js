@@ -36,7 +36,32 @@
 
 //  =======================  Solution with recursion  ===========================
 
-function fib(n) {
+// function fib(n) {
+//   if (n < 2) {
+//     return n;
+//   }
+
+//   return fib(n - 1) + fib(n - 2);
+// }
+
+//  ==========================  Solution with Memoization  ==========================
+
+//this is the anonymous function that will cache the value of our slower functions
+function memoize(fn) {
+  const cache = {};
+  return function(...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+    const result = fn.apply(null, args);
+
+    cache[args] = result;
+
+    return result;
+  };
+}
+
+function slowFib(n) {
   if (n < 2) {
     return n;
   }
@@ -44,4 +69,7 @@ function fib(n) {
   return fib(n - 1) + fib(n - 2);
 }
 
+const fib = memoize(slowFib);
+
+// console.log(fib(50));
 module.exports = fib;
