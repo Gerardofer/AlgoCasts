@@ -11,11 +11,7 @@
   },
   "author": "",
   "license": "ISC",
-<<<<<<< HEAD
   "dependencies": {
     "jest": "^23.6.0"
   }
-=======
-  "dependencies": {}
->>>>>>> 93f6d06c17a19c33861c1e6a318ff50daca00ede
 }
